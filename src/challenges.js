@@ -1,5 +1,10 @@
 // Desafio 1
-function compareTrue() {
+function compareTrue(ver, fal) {
+  if (ver && fal === true) {
+    return true
+  } else {
+    return false
+  }
 
 }
 
@@ -37,14 +42,14 @@ function highestCount(numeros) {
 //   }
 // }
 // console.log(maiorNumero);
-  // let maiorNumero = Math.max(...numeros);
-  // let repet = 0
-  //   for (let index = 0; index <= numeros.length; index += 1) {
-  //     if (maiorNumero === numeros[index]) {
-  //        repet = repet + 1
-  //     }
-  //   }
-  //   return repet
+//   let maiorNumero = Math.max(...numeros);
+//   let repet = 0
+//     for (let index = 0; index <= numeros.length; index += 1) {
+//       if (maiorNumero === numeros[index]) {
+//          repet = repet + 1
+//       }
+//     }
+//     return repet
 }
 
 
@@ -90,13 +95,46 @@ function fizzBuzz(numArray) {
 }
 
 // Desafio 9
-function encode() {
-  // seu código aqui
-}
-function decode() {
-  // seu código aqui
-}
+function encode(vogais) {
+  let num = ''
+  for (let index = 0; index < vogais.length; index += 1) {
+      if (vogais[index] === 'a') {
+          num = num + '1';
+      } else if (vogais[index] === 'e') {
+          num = num + '2';
+      } else if (vogais[index] === 'i') {
+          num = num + '3';
+      } else if (vogais[index] === 'o') {
+          num = num + '4';
+      } else if (vogais[index] === 'u') {
+          num = num + '5'
+      } else {
+          num = num + vogais[index]
+      }
+   } 
+return num
+} 
 
+
+function decode(vogais) {
+  let num = ''
+  for (let index = 0; index < vogais.length; index += 1) {
+    if (vogais[index] === '1') {
+        num = num + 'a';
+    } else if (vogais[index] === '2') {
+        num = num + 'e';
+    } else if (vogais[index] === '3') {
+        num = num + 'i';
+    } else if (vogais[index] === '4') {
+        num = num + 'o';
+    } else if (vogais[index] === '5') {
+        num = num + 'u'
+    } else {
+        num = num + vogais[index]
+    }
+}
+return num
+} 
 // Desafio 10
 function techList() {
   // seu código aqui

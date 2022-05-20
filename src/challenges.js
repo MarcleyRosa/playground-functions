@@ -35,21 +35,21 @@ function footballPoints(wins, ties) {
 }
 // Desafio 6
 function highestCount(numeros) {
-//   let maiorNumero = 0;
-//   for (let index = 0; index <= numeros.length; index += 1) {
-//   if (numeros[index] > maiorNumero) {
-//     maiorNumero = numeros[index]
-//   }
-// }
-// console.log(maiorNumero);
-//   let maiorNumero = Math.max(...numeros);
-//   let repet = 0
-//     for (let index = 0; index <= numeros.length; index += 1) {
-//       if (maiorNumero === numeros[index]) {
-//          repet = repet + 1
-//       }
-//     }
-//     return repet
+  let maiorNumero = 0
+  for (let i = 0, cont = 1; i < numeros.length; i += 1, cont += 1) {
+    if (numeros[i] < 0) {
+       maiorNumero = numeros[i]
+    } else if (numeros[i] > maiorNumero) {
+       maiorNumero = numeros[i]
+     }
+  }
+    let repet = 0
+      for (let index = 0; index < numeros.length; index += 1) {
+        if (maiorNumero === numeros[index]) {
+           repet = repet + 1
+        }
+      }
+      return repet
 }
 
 
@@ -136,8 +136,23 @@ function decode(vogais) {
 return num
 } 
 // Desafio 10
-function techList() {
-  // seu código aqui
+function techList(array, string) {
+  let obj = []
+  array.sort();
+  for (let i = 0; i < array.length; i += 1) {
+    obj.push({
+      tech: array[i],
+      name: string
+    })
+    
+}
+   
+  if (array.length > 0 || string > 0) {
+      return obj;
+   } else {
+      return 'Vazio!';
+   }
+   
 }
 
 module.exports = {

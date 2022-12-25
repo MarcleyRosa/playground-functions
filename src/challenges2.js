@@ -1,31 +1,43 @@
 // Desafio 11
-function generatePhoneNumber(telNumber) {
-  bole = false
-  let result = '(' + telNumber[0] + telNumber[1] + ') ' + telNumber[2] + telNumber[3] + telNumber[4] + telNumber[5] + telNumber[6] + '-' + telNumber[7] + telNumber[8] + telNumber[9] + telNumber[10];
-  if (telNumber.length !== 11) {
-    return 'Array com tamanho incorreto.'
-  }
-  for (let n of telNumber) {
-    let repet = 0
-      for (let ind = 0; ind < telNumber.length; ind += 1) {
-        if (telNumber[ind] > 9 || telNumber[ind] < 0) {
-          result = 'não é possível gerar um número de telefone com esses valores'
-        } 
-        if (n === telNumber[ind]) {
-          repet = repet + 1
-          if (repet > 2) {
-            result = 'não é possível gerar um número de telefone com esses valores'
-          } else {
-            bole = true
-          }
-      }
-      }
-    
-  }
 
-  if (bole === true) {
-    return result
+function numGenerate(telNumber, comp, num, message) {
+  let repet = 0;
+  for (let ind = 0; ind < telNumber.length; ind += 1) {
+    if (comp) {
+      return message;
+    }
+    if (num === telNumber[ind]) {
+      repet += 1;
+      if (repet > 2) {
+        return message;
+      }
+    }
   }
+}
+
+function generatePhoneNumber(telNumber) {
+  const message = 'não é possível gerar um número de telefone com esses valores'
+  if (telNumber.length !== 11) {
+    return 'Array com tamanho incorreto.';
+  }
+  for (let num of telNumber) {
+    let repet = 0;
+    for (let ind = 0; ind < telNumber.length; ind += 1) {
+      if (num > 9 || num < 0) {
+        return message
+      }
+      if (num === telNumber[ind]) {
+        repet += 1;
+        if (repet > 2) {
+          return message
+        }
+      }
+    }
+  }
+  const n = telNumber;
+  const result = `(${n[0]}${n[1]}) ${n[2]}${n[3]}${n[4]}${n[5]}${n[6]}-${n[7]}${n[8]}${n[9]}${n[10]}`;
+
+  return result;
 }
 
 // Desafio 12

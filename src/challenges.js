@@ -99,30 +99,20 @@ function fizzBuzz(numArray) {
 
 // Desafio 9
 
-function trasnform(ind, comp, num, mud) {
-  if (ind === comp) {
-    num += mud;
-  }
-  return ind;
-
-}
 function encode(vogais) {
   let num = '';
   for (let index = 0; index < vogais.length; index += 1) {
     let vogal = vogais[index];
-    if (vogal === 'a') {
-      num += '1';
-    } else if (vogal === 'e') {
-      num += '2';
-    } else if (vogal === 'i') {
-      num += '3';
-    } else if (vogal === 'o') {
-      num += '4';
-    } else if (vogal === 'u') {
-      num += '5';
-    } else {
-      num += vogal;
-    }
+    const obj = {
+      a: '1',
+      e: '2',
+      i: '3',
+      o: '4',
+      u: '5',
+    };
+    const add = obj[vogal];
+    if (add) num += add;
+    else num += vogal;
   }
   return num;
 }
@@ -130,19 +120,17 @@ function encode(vogais) {
 function decode(vogais) {
   let num = '';
   for (let index = 0; index < vogais.length; index += 1) {
-    if (vogais[index] === '1') {
-      num += 'a';
-    } else if (vogais[index] === '2') {
-      num += 'e';
-    } else if (vogais[index] === '3') {
-      num += 'i';
-    } else if (vogais[index] === '4') {
-      num += 'o';
-    } else if (vogais[index] === '5') {
-      num += 'u';
-    } else {
-      num += vogais[index];
-    }
+    let vogal = vogais[index];
+    const obj = {
+      1: 'a',
+      2: 'e',
+      3: 'i',
+      4: 'o',
+      5: 'u',
+    };
+    const add = obj[vogal];
+    if (add) num += add;
+    else num += vogal;
   }
   return num;
 }
@@ -162,24 +150,6 @@ function techList(array, string) {
   }
   return 'Vazio!';
 }
-
-function triangleCheck(lineA, lineB, lineC) {
-  let ab = lineA + lineB;
-  let ac = lineA + lineC;
-  let bc = lineB + lineC;
-  let AB = Math.abs(lineA - lineB);
-  let AC = Math.abs(lineA - lineC);
-  let BC = Math.abs(lineB - lineC);
-  if (lineA < ab && lineB < ac && lineC < bc) {
-    if (lineB > AC && lineA > BC && lineC > AB) {
-      return true;
-    }
-    return false;
-  }
-  return false;
-}
-
-triangleCheck();
 
 module.exports = {
   calcArea,

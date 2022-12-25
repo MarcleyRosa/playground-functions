@@ -29,8 +29,20 @@ function generatePhoneNumber(telNumber) {
 }
 
 // Desafio 12
-function triangleCheck() {
-  // seu código aqui
+function triangleCheck(lineA, lineB, lineC) {
+  let ab = lineA + lineB;
+  let ac = lineA + lineC;
+  let bc = lineB + lineC;
+  let AB = Math.abs(lineA - lineB);
+  let AC = Math.abs(lineA - lineC);
+  let BC = Math.abs(lineB - lineC);
+  if (lineA < ab && lineB < ac && lineC < bc) {
+    if (lineB > AC && lineA > BC && lineC > AB) {
+      return true;
+    }
+    return false;
+  }
+  return false;
 }
 
 // Desafio 13

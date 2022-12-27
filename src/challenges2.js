@@ -39,16 +39,20 @@ function testss(param1, param2, param3) {
   }
   return false;
 }
+function absForm(line1, line2, line3) {
+  const result = line3 > Math.abs(line1 - line2);
+  return result;
+}
+
 function triangleCheck(lineA, lineB, lineC) {
   let ab = lineA + lineB;
   let ac = lineA + lineC;
   let bc = lineB + lineC;
-  let AB = Math.abs(lineA - lineB);
-  let AC = Math.abs(lineA - lineC);
-  let BC = Math.abs(lineB - lineC);
-  const lineAC = lineB > AC;
-  const lineBC = lineA > BC;
-  const lineAB = lineC > AB;
+
+  const lineAC = absForm(lineA, lineC, lineB);
+  const lineBC = absForm(lineB, lineC, lineA);
+  const lineAB = absForm(lineA, lineB, lineC);
+
   if (lineA < ab && lineB < ac && lineC < bc) {
     return testss(lineAC, lineBC, lineAB);
   }
